@@ -21,6 +21,7 @@ $weight = {}
 # そうでない場合はすべてに同じウェイトを割り当てる。
 #
 def process(name,value,zipf)
+  STDERR.puts "Reading dictionary #{name}..."
   wikiname = $wikiname
   if name =~ /^(.*)::(.*)$/ then
     wikiname = $1
@@ -42,6 +43,8 @@ def process(name,value,zipf)
     end
   }
 end
+
+STDERR.puts "Create dictionary from #{$wikiname}/#{$rootpage}..."
 
 list = nil
 Net::HTTP.start($wikibase, 80) {|http|
