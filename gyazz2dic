@@ -42,7 +42,7 @@ class GyazzDic
   end
 
   def process_root(wiki,page)
-    puts "#{wiki} - #{page}"
+    STDERR.puts "Processing #{wiki}::#{page}"
     @wiki = wiki
     root = Gyazz.new
     root.each(wiki,page){ |line|
