@@ -2,24 +2,6 @@
 require 'net/http'
 
 class Gyazz 
-  def initializex(name, page, base='gyazz.com')
-    @base = base
-    @name = name
-    @page = page
-  end
-
-  def each_x
-    Net::HTTP.start(@base, 80) {|http|
-      response = http.get("/#{@name}/#{@page}/text")
-      l = response.body
-      if l then
-        l.each { |line|
-          yield(line)
-        }
-      end
-    }
-  end
-
   def initialize(base='gyazz.com')
     @base = base
   end
